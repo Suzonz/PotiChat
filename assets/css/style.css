@@ -1,0 +1,221 @@
+/* Thèmes */
+.hooman-theme {
+    background-color: #078868;
+    color: #5dd8b9;
+}
+
+.potichat-theme {
+    background-color: #5f2c38;
+    color: #e4678a;
+}
+
+#toggle-music {
+    background-color: transparent;
+    border: transparent;
+    right: 0;
+    position: absolute;
+    margin: 2px 10px;
+    font-size: 30px;
+}
+
+/* Zone de jeu */
+#game {
+    background: transparent;
+    margin-top: 60px;
+    transition: background 0.3s, color 0.3s;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    text-align: end;
+
+    p {
+        margin: 3px;
+    }
+}
+
+main {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 28px;
+    text-align: center;
+    transition: background 0.6s, color 0.6s;
+}
+
+/* Texte de narration */
+#story {
+    min-height: 110px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    line-height: 1.4;
+    color: inherit;
+}
+
+/* Grille de boutons de choix */
+#choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 28px;
+    justify-items: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Boutons de choix : largeur gérée par JS, pas de width en CSS */
+#choices>.choice-btn {
+    min-width: 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 28px;
+    border: 2px solid currentColor;
+    border-radius: 14px;
+    background: transparent;
+    color: inherit;
+    margin: 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.2s, transform 0.1s;
+    overflow: visible;
+    text-overflow: initial;
+}
+
+#choices>.choice-btn:hover,
+#choices>.choice-btn:focus {
+    background-color: #dfdfdf;
+    color: #414141;
+    transform: translateY(-2px) scale(1.02);
+    outline: none;
+}
+
+#choices>.choice-btn {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Bouton "Continuer" centré et fixe, inchangé */
+.continue-btn {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+    font-size: 30px;
+    padding: 20px 50px;
+    background: transparent;
+    color: #dfdfdf;
+    border-radius: 24px;
+    border: 2px solid #dfdfdf;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.1s;
+}
+
+.continue-btn:hover,
+.continue-btn:focus {
+    background: #dfdfdf;
+    color: #414141;
+    transform: translate(-50%, -50%) scale(1.02);
+    outline: none;
+}
+
+
+/* Stats collées en bas à gauche, thème adapté */
+#stats {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    margin: 0 40px;
+    background: #dfdfdf;
+    border-radius: 12px 12px 0 0;
+    padding: 18px 32px;
+    font-size: 22px;
+    z-index: 100;
+    min-width: 220px;
+    text-align: left;
+    letter-spacing: 0.5px;
+    color: #414141;
+}
+
+#stats.hooman-theme,
+#stats.potichat-theme {
+    background: #dfdfdf;
+    color: #414141;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 600px) {
+    main {
+        max-width: 100vw;
+    }
+
+    .cat-emoji {
+        font-size: 0.7em;
+    }
+
+    #toggle-music {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        margin: 0;
+        font-size: 5vw;
+        /* S'adapte à la largeur de l'écran */
+    }
+
+    #choices {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #choices>.choice-btn {
+        font-size: 6vw;
+        /* Grosse taille pour le tactile */
+        padding: 16px 15px;
+        border-width: 3px;
+        border-radius: 20px;
+    }
+
+    .continue-btn {
+        font-size: 8vw;
+        padding: 8vw 0;
+        min-width: 60vw;
+        max-width: 90vw;
+        border-width: 3px;
+        border-radius: 20px;
+        top: 70%;
+        /* Place le bouton plus bas (75% de la hauteur de l'écran) */
+        transform: translate(-50%, -50%);
+    }
+
+    #stats {
+        position: fixed;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        margin: 0 0 50px 0;
+        padding: 17px;
+        width: 100vw;
+        min-width: unset;
+        text-align: center;
+        z-index: 100;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        left: 10px;
+    }
+}
