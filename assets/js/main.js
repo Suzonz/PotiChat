@@ -3,16 +3,11 @@ let cat = 0;
 let statsHaveBeenShown = false;
 
 window.onload = function() {
-    // --- Gestion de la musique ---
     const music = document.getElementById('bg-music');
     music.volume = 0.3;
-
-    // Essaye de lancer la musique automatiquement
     music.play().catch(() => {
-        // Si l'autoplay est bloqué, la musique démarrera au clic sur le bouton
+        
     });
-
-    // Bouton ON/OFF pour la musique
     document.getElementById('toggle-music').onclick = function() {
         if (music.paused) {
             music.play();
@@ -21,12 +16,10 @@ window.onload = function() {
         }
     };
 
-    // --- Lancement du jeu ---
     startGame();
 };
 
 
-// Applique le thème CSS selon le tour
 function applyTheme(isHooman) {
     const body = document.body;
     const game = document.getElementById('game');
@@ -43,7 +36,6 @@ function applyTheme(isHooman) {
     }
 }
 
-// Affiche un texte et, si next est fourni, un bouton "Continuer" qui appelle next
 function showStory(text, next) {
     document.getElementById('story').innerHTML = text;
     document.getElementById('choices').innerHTML = '';
@@ -59,7 +51,6 @@ function showStory(text, next) {
     }
 }
 
-// Affiche les choix d'action du joueur et les stats
 function showChoices(choices) {
     applyTheme(true); // Tour du joueur
     const div = document.getElementById('choices');
@@ -76,13 +67,11 @@ function showChoices(choices) {
     statsHaveBeenShown = true;
 }
 
-// Met à jour l'affichage des stats
 function updateStats() {
     document.getElementById('stats').innerHTML =
         `Affection PotiChat : ${cat}/100<br>Santé mentale : ${hooman}/100`;
 }
 
-// Fonctions utilitaires
 function randomize(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -90,7 +79,6 @@ function minMax(value, min, max) {
     return Math.max(min, Math.min(max, value));
 }
 
-// Fonction utilitaire pour afficher l'échec en deux temps
 function showFailMessage(isHooman, nextMessage, nextCallback) {
     showStory(
         isHooman ? "Mais échouez !" : "Mais échoue !",
@@ -98,9 +86,8 @@ function showFailMessage(isHooman, nextMessage, nextCallback) {
     );
 }
 
-// Démarrage du jeu
 function startGame() {
-    applyTheme(true); // Commence par le thème Hooman
+    applyTheme(true); 
     showStory(
         "Vous êtes en train de vous promener dans la forêt lorsque...<br>Un PotiChat apparait !",
         showWhatDoYouWant
@@ -112,7 +99,7 @@ function showWhatDoYouWant() {
 }
 
 function showActionButtons() {
-    document.getElementById('story').innerHTML = ""; // Efface la phrase
+    document.getElementById('story').innerHTML = "";
     showChoices([
         { text: "Jouer", action: jouer },
         { text: "Regarder des vidéos de chats", action: video },
@@ -138,7 +125,6 @@ function nextTurn() {
 }
 
 
-// Fonction qui affiche un message final ET le bouton "Rejouer"
 function showFinalMessage(text) {
     document.getElementById('story').innerHTML = text;
     const div = document.getElementById('choices');
@@ -151,8 +137,6 @@ function showFinalMessage(text) {
     document.getElementById('stats').style.display = 'none';
 }
 
-
-// ... (tout le début inchangé)
 
 function jouer() {
     showStory(
@@ -362,7 +346,6 @@ function catGriffe() {
 
 
 
-// Affiche le bouton "Rejouer" à la fin du jeu
 function showRestartButton() {
     const div = document.getElementById('choices');
     div.innerHTML = '';
@@ -376,7 +359,6 @@ function showRestartButton() {
     }
 }
 
-// Remet les stats à zéro et relance le jeu
 function restartGame() {
     hooman = 100;
     cat = 0;
