@@ -1,8 +1,12 @@
 # PotiChat
 
-A small narrative game in the browser, about winning the heart of a very proud cat.
-You are walking in the forest when a PotiChat appears: play with it, pet it, give it treats…
-and earn its affection before your mental health drops to zero.
+A small turn-based game in the browser, in the spirit of a *Pokémon* wild encounter… with a twist.
+
+You are walking in the forest when a wild PotiChat appears. As in *Pokémon*, you take turns:
+you pick an action, then the creature answers with its own move (“PotiChat uses Hiss!”, “It's super effective!”).
+But here, you don't fight it or try to catch it: the goal is to win its heart.
+Play with it, pet it, give it treats… and earn its affection before your mental health drops to zero.
+In the end, it's not you who catches the cat: it's the cat who adopts you.
 
 **[▶ Play in your browser](https://suzonz.github.io/PotiChat/)**
 
