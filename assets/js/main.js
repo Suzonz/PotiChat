@@ -19,6 +19,12 @@ window.onload = function() {
     startGame();
 };
 
+// Joué dans le portfolio de Suzon : quand son son est coupé, la musique se tait aussi
+window.addEventListener('message', e => {
+    if (e.source !== window.parent || !e.data || e.data.type !== 'portfolio98:mute') return;
+    document.getElementById('bg-music').muted = e.data.muted;
+});
+
 
 function applyTheme(isHooman) {
     const body = document.body;
